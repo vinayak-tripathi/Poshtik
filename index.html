@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset='utf-8'>
+  <link rel="icon" href="logo.png">
+  <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+  <title>Poshtik Admin</title>
+  <meta name='viewport' content='width=device-width, initial-scale=1'>
+  <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src='Javascript/app.js'></script>
+  <script src="https://www.gstatic.com/firebasejs/8.6.7/firebase-app.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+        https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/8.6.7/firebase-database.js"></script>
+
+    <script>
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+    </script>
+	
+</head>
+<body background="brown">
+
+  <div class="bs" height=50px>
+    <nav class="navbar navbar-expand-md navbar-dark" style="background-color: purple;">
+      <a href="https://github.com/vinayak-tripathi" class="navbar-brand"><img src="logo.png" height=80px" width=80px></a>
+      
+      <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+  
+      <div class="collapse navbar-collapse" id="navbarCollapse">
+        <div class="navbar-nav">
+          <a href="mat-mul.html" class="nav-item nav-link" id=act>Matrix Calculator</a>
+          <a href="calculator.html" class="nav-item nav-link">Simple Calculator</a>
+          <a href="s-calculator.html" class="nav-item nav-link" >Scientific Calculator</a>
+          <a href="p-calculator.html" class="nav-item nav-link">Programmer Calculator</a>
+          <a href="e-calculator.html" class="nav-item nav-link">Equation Solver</a>
+        </div>
+        
+      </div>
+    </nav>
+  </div>
+    Name<br />
+    <input type="text" id="form-name" /><br />
+    Username<br />
+    <input type="text" id="form-username" /><br />
+    Gender<br />
+    <select id="form-gender">
+      <option>Male</option>
+      <option>Female</option>
+      <option>Other</option> </select
+    ><br />
+    <button id="register" onclick="validateform()">Register</button>
+    <div id="res"></div>
+     <script>
+        // const validateForm = () => {
+        //   const name = document.querySelector("#form-name").value;
+        //   const username = document.querySelector("#form-username").value;
+        //   const gender = document.querySelector("#form-gender").value;
+  
+        //   if (name.trim() == "" || username.trim() == "" || gender == "") {
+        //     alert("form not completely filled");
+        //   } else {
+        //     // writeToDatabase(name, username, gender);
+        //     readOrders();
+
+        //   }
+        // };
+  
+        // const writeToDatabase = (name, username, gender) => {
+        //   firebase
+        //     .database()
+        //     .ref("Registration/" + Date.now())
+        //     .set({
+        //       name: name,
+        //       user: username,
+        //       gender: gender,
+        //     });
+        // };
+  
+        // document.querySelector("#register").addEventListener("click", () => {
+        //   validateForm();
+        // });
+  
+        // const readFromDatabaseOn = (id) => {
+        //   s="";
+        //   firebase
+        //     .database()
+        //     .ref(id)
+        //     .on("value", function (snapshot) {
+        //       s +=snapshot.val().name+ "<br>";
+        //       snapshot.val().user;
+        //       snapshot.val().gender;
+        //     });
+        // };
+  
+        // const readFromDatabaseOnce = (id) => {
+        //   firebase
+        //     .database()
+        //     .ref(id)
+        //     .once("value", function (snapshot) {
+        //       console.log(snapshot.val().name);
+        //       console.log(snapshot.val().user);
+        //       console.log(snapshot.val().gender);
+        //     });
+        // };
+  
+        // const readOrders = () => {
+        //   var s="",cost="Cost";
+        //   console.log("vt");
+        //   firebase
+        //     .database()
+        //     .ref("Food Order")
+        //     .once("value", function (snapshot) {
+              
+        //       snapshot.forEach(function (childSnapshot) {
+        //         console.log("vt");
+        //         s +=(childSnapshot.val().Item)+ "&nbsp; &nbsp;";
+        //         s +=(childSnapshot.val().Cost)+ " ";
+        //         s +="<br>"
+        //         document.getElementById("res").innerHTML=s;
+        //       });
+        //     });
+        //     console.log("vt2");
+        // };
+  
+        // const updateUserDetails = (id, age) => {
+        //   firebase
+        //     .database()
+        //     .ref("Registration/" + id)
+        //     .update({
+        //       age: age,
+        //     });
+        // };
+  
+        // const removeUserDetails = (id) => {
+        //   firebase
+        //     .database()
+        //     .ref("Registration/" + id)
+        //     .remove();
+        // };
+  
+      </script>
+  
+</body>
+</html>
