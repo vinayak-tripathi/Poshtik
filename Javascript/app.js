@@ -88,16 +88,22 @@ function validateform(){
       });
   };
 
-  function get_user(id){
-    s="<tr>";
-    firebase
-      .database()
-      .ref("Users/"+id)
-      .on("value", function (snapshot) {
-        s +='<th scope="row">'+(snapshot.val().name)+ '</th>';
-        s +='<td>'+(snapshot.val().email)+ '</td>';
-        document.getElementById("res").innerHTML+=s;
-        return;
+  const get_user = () => {
+    // var s;
+    firebase.database().ref("Users").on("value", function (snapshot) {
+      document.getElementById('users').innerHTML="";
+        snapshot.forEach(function (User) {
+          // document.getElementById('users').innerHTML="";
+            // console.log(User.val().name);
+            var s="<tr>";
+            s +='<th scope="row">'+(User.val().name)+ '</th>';
+            s +='<td>'+(User.val().email)+ '</td>';
+            s +='<td>'+(User.val().phone)+ '</td>';
+            s +='</tr>';
+            console.log(s);
+            document.getElementById("users").innerHTML+=s;
+            document.getElementById("us").innerHTML=document.getElementById("users").rows.length;
+        });
       });
     
   }
@@ -105,15 +111,18 @@ function validateform(){
     firebase.database().ref("Food Order").on("value", function (snapshot) {
         snapshot.forEach(function (Order) {
           document.getElementById('res').innerHTML="";
-          console.log(Order.key);
+          
+          // console.log(Object.length+" vt ");
           firebase.database().ref("Users/"+Order.key).once("value", function (User) {
             var s="<tr>";
+            console.log(Order.key);
             s +='<th scope="row">'+(User.val().name)+ '</th>';
             s +='<td>'+(User.val().email)+ '</td>';
             s +='<td>'+(Order.val().Item)+ '</td>';
             s +='<td>₹'+(Order.val().Cost)+ '</td>';
-            s+'</tr>';
+            s +='</tr>';
             document.getElementById("res").innerHTML+=s;
+            document.getElementById("ord").innerHTML=document.getElementById("res").rows.length;
           });
         });
       });
